@@ -23,14 +23,14 @@ module.exports = function (app, config) {//uses express and config objects
   app.use(function (req, res, next) {
     console.log('Request from ' + req.connection.remoteAddress, 'info');
     next();
-  });//prints where the request is coming from to the console.
+  });//prints where the request is coming from to console.
   
 //parses the text that was included for the post. 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
   }));
-//loads models files first before controllers
+//loads models files first before controller
   var models = glob.sync(config.root + '/app/models/*.js');
   models.forEach(function (model) {
     require(model);
@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({
       res.type('text/plan');
       res.status(404);
       res.send('404 Not Found');
-    });//Processes incoming request. If no route found, it will give a 404 and not pass it to the next middleware. This will end the chain
+    });//Processes incoming request. If no route found, it will give a 404 and not pass it to the next middleware.
 
   app.use(function (err, req, res, next) {
     //only there to test it
@@ -61,4 +61,4 @@ app.use(bodyParser.urlencoded({
   });// Process incoming requests. it can complete successfully or move to next middleware or give a 500 error.
 
   console.log("Starting application");//starts application and prints it to console.
-}
+};

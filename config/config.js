@@ -5,9 +5,9 @@ env = process.env.NODE_ENV || 'development';//if there are multiple environments
 var config = {  
 development: {    
             root: rootPath,    
-            app: {      name: 'Exam2'    },    
+            app: {      name: 'Exam'    },    
             port: 5000,//port number where server will listen 
-            db: 'mongodb://127.0.0.1/exam2-dev'//folder for where the data will be stored. Creates a new folder
+            db: 'mongodb://127.0.0.1/exam3-dev'//folder for where the data will be stored. Creates a new folder
          
  }
  };
